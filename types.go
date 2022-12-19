@@ -88,9 +88,10 @@ type Incident struct {
 	PostmortemDocumentUrl string `json:"postmortem_document_url,omitempty"`
 
 	// Reference to this incident, as displayed across the product
-	Reference string   `json:"reference"`
-	Creator   Actor    `json:"creator"`
-	Severity  Severity `json:"severity"`
+	Reference 		string   		`json:"reference"`
+	Creator   		Actor    		`json:"creator"`
+	Severity  		Severity 		`json:"severity"`
+	ExternalIssueReference	ExternalIssueReference	`json:"external_issue_reference"`
 
 	// ID of the Slack channel in the organisation Slack workspace
 	SlackChannelId string `json:"slack_channel_id"`
@@ -257,6 +258,17 @@ type Severity struct {
 
 	// When the action was last updated
 	UpdatedAt time.Time `json:"updated_at"`
+}
+
+type ExternalIssueReference struct {
+	// Ref of the external issue
+	IssueName string `json:"issue_name"`
+
+	// permalink to the external issue
+	IssuePermalink string `json:"issue_permalink"`
+	
+	// Provider of the external issue
+	Provider string `json:"provider"`
 }
 
 type IncidentTimestamp struct {
