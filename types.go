@@ -91,7 +91,7 @@ type Incident struct {
 	Reference 		string   		`json:"reference"`
 	Creator   		Actor    		`json:"creator"`
 	Severity  		Severity 		`json:"severity"`
-	ExternalIssueReference *ExternalIssueReference `json:"external_issue_reference,omitempty"`
+	ExternalIssueReference ExternalIssueReference `json:"external_issue_reference,omitempty"`
 
 	// ID of the Slack channel in the organisation Slack workspace
 	SlackChannelId string `json:"slack_channel_id"`
