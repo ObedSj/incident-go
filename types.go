@@ -100,7 +100,7 @@ type Incident struct {
 	SlackChannelName string `json:"slack_channel_name,omitempty"`
 
 	// Current status of the incident
-	Status string `json:"status"`
+	IncidentStatus IncidentStatus `json:"incident_status"`
 
 	// Detailed description of the incident
 	Summary string `json:"summary,omitempty"`
@@ -395,6 +395,16 @@ type ExternalIssueReference struct {
 
 	// ID of the issue tracker provider
 	Provider string `json:"provider"`
+}
+
+type IncidentStatus struct {
+	Id string `json:"id"`
+	Name string `json:"name"`
+	Description string `json:"description"`
+	Rank int `json:"name"`
+	Category string `json:"category"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
 }
 
 type ActionResponse struct {
