@@ -41,7 +41,7 @@ func (s *IncidentsService) List(ctx context.Context, opts *IncidentsListOptions)
 //
 // API docs: https://api-docs.incident.io/#operation/Incidents_Show
 func (s *IncidentsService) Get(ctx context.Context, id string) (*IncidentResponse, *Response, error) {
-	u := fmt.Sprintf("incidents/%s", id)
+	u := fmt.Sprintf("v2/incidents/%s", id)
 
 	req, err := s.client.NewRequest("GET", u, nil)
 	if err != nil {

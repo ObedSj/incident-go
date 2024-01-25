@@ -37,7 +37,7 @@ func (s *SeveritiesService) List(ctx context.Context) (*SeveritiesList, *Respons
 //
 // API docs: https://api-docs.incident.io/#operation/Severities_Show
 func (s *SeveritiesService) Get(ctx context.Context, id string) (*SeverityResponse, *Response, error) {
-	u := fmt.Sprintf("severities/%s", id)
+	u := fmt.Sprintf("v1/severities/%s", id)
 
 	req, err := s.client.NewRequest("GET", u, nil)
 	if err != nil {
