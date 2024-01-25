@@ -65,6 +65,19 @@ type IncidentsListOptions struct {
 	Status []string `url:"status,omitempty"`
 }
 
+// NewIncident represents a new incident to be created
+type NewIncident struct {
+	IdempotencyKey          string                   `json:"idempotency_key"` // Required
+	Visibility              string                   `json:"visibility"`      // Required
+	Name                    string                   `json:"name"`
+	Summary                 string                   `json:"summary"`
+	SeverityID              string                   `json:"severity_id"`
+	Mode                    string                   `json:"mode"`
+	CustomFieldEntries      []CustomFieldEntry       `json:"custom_field_entries"`
+	IncidentRoleAssignments []IncidentRoleAssignment `json:"incident_role_assignments"`
+	IncidentStatusID        string                   `json:"incident_status_id"`
+}
+
 type Incident struct {
 	// The call URL attached to this incident
 	CallUrl string `json:"call_url,omitempty"`
@@ -88,9 +101,9 @@ type Incident struct {
 	PostmortemDocumentUrl string `json:"postmortem_document_url,omitempty"`
 
 	// Reference to this incident, as displayed across the product
-	Reference 		string   		`json:"reference"`
-	Creator   		Actor    		`json:"creator"`
-	Severity  		Severity 		`json:"severity"`
+	Reference              string                  `json:"reference"`
+	Creator                Actor                   `json:"creator"`
+	Severity               Severity                `json:"severity"`
 	ExternalIssueReference *ExternalIssueReference `json:"external_issue_reference,omitempty"`
 
 	// ID of the Slack channel in the organisation Slack workspace
@@ -398,13 +411,13 @@ type ExternalIssueReference struct {
 }
 
 type IncidentStatus struct {
-	Id string `json:"id"`
-	Name string `json:"name"`
-	Description string `json:"description"`
-	Rank int `json:"rank"`
-	Category string `json:"category"`
-	CreatedAt time.Time `json:"created_at"`
-	UpdatedAt time.Time `json:"updated_at"`
+	Id          string    `json:"id"`
+	Name        string    `json:"name"`
+	Description string    `json:"description"`
+	Rank        int       `json:"rank"`
+	Category    string    `json:"category"`
+	CreatedAt   time.Time `json:"created_at"`
+	UpdatedAt   time.Time `json:"updated_at"`
 }
 
 type ActionResponse struct {
