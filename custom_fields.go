@@ -37,7 +37,7 @@ func (s *CustomFieldsService) List(ctx context.Context) (*CustomFieldsList, *Res
 //
 // API docs: https://api-docs.incident.io/#operation/Custom%20Fields_Show
 func (s *CustomFieldsService) Get(ctx context.Context, id string) (*CustomFieldResponse, *Response, error) {
-	u := fmt.Sprintf("custom_fields/%s", id)
+	u := fmt.Sprintf("v2/custom_fields/%s", id)
 
 	req, err := s.client.NewRequest("GET", u, nil)
 	if err != nil {

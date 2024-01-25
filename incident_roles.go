@@ -37,7 +37,7 @@ func (s *IncidentRolesService) List(ctx context.Context) (*IncidentRolesList, *R
 //
 // API docs: https://api-docs.incident.io/#operation/Incident%20Roles_Show
 func (s *IncidentRolesService) Get(ctx context.Context, id string) (*IncidentRoleResponse, *Response, error) {
-	u := fmt.Sprintf("incident_roles/%s", id)
+	u := fmt.Sprintf("v2/incident_roles/%s", id)
 
 	req, err := s.client.NewRequest("GET", u, nil)
 	if err != nil {
