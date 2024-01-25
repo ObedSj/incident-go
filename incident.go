@@ -19,8 +19,9 @@ import (
 
 const (
 	// API URL
-	// Right now, the API is only available in v1 and as a cloud version.
-	apiURL = "https://api.incident.io/v2/"
+	//Adding two versions since some endpoints are only available in v1
+	apiURLv1 = "https://api.incident.io/v1/"
+	apiURLv2 = "https://api.incident.io/v2/"
 
 	// User Agent that will be used for HTTP requests.
 	// Should help to identify the source of the calls in case of emergency.
@@ -66,11 +67,20 @@ type service struct {
 // NewClient returns a new Incident.io API client.
 // All endpoints require authentication, the apiKey should be set.
 // If a nil httpClient is provided, a new http.Client will be used.
-func NewClient(apiKey string, httpClient *http.Client) *Client {
+func NewClient(apiKey string, apiVersion string, httpClient *http.Client) *Client {
 	if httpClient == nil {
 		httpClient = &http.Client{}
 	}
-	baseURL, _ := url.Parse(apiURL)
+	// validate apiVersion since certain endpoints are only available in v1
+	var baseURL *url.URL
+	if apiVersion == "v1" {
+		baseURL, _ = url.Parse(apiURLv1)
+	} else if apiVersion == "v2" {
+		baseURL, _ = url.Parse(apiURLv2)
+	} else {
+		// Default to v2
+		baseURL, _ = url.Parse(apiURLv2)
+	}
 
 	c := &Client{
 		client:    httpClient,
