@@ -15,7 +15,7 @@ type ActionsService service
 //
 // API docs: https://api-docs.incident.io/#operation/Actions_List
 func (s *ActionsService) List(ctx context.Context, opts *ActionsListOptions) (*ActionsList, *Response, error) {
-	u := "actions"
+	u := "v2/actions"
 	u, err := addOptions(u, opts)
 	if err != nil {
 		return nil, nil, err

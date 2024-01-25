@@ -15,7 +15,7 @@ type IncidentsService service
 //
 // API docs: https://api-docs.incident.io/#operation/Incidents_List
 func (s *IncidentsService) List(ctx context.Context, opts *IncidentsListOptions) (*IncidentsList, *Response, error) {
-	u := "incidents"
+	u := "v2/incidents"
 	u, err := addOptions(u, opts)
 	if err != nil {
 		return nil, nil, err

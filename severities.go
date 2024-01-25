@@ -15,7 +15,7 @@ type SeveritiesService service
 //
 // API docs: https://api-docs.incident.io/#operation/Severities_List
 func (s *SeveritiesService) List(ctx context.Context) (*SeveritiesList, *Response, error) {
-	u := "severities"
+	u := "v1/severities"
 
 	req, err := s.client.NewRequest("GET", u, nil)
 	if err != nil {

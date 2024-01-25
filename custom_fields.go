@@ -15,7 +15,7 @@ type CustomFieldsService service
 //
 // API docs: https://api-docs.incident.io/#operation/Custom%20Fields_List
 func (s *CustomFieldsService) List(ctx context.Context) (*CustomFieldsList, *Response, error) {
-	u := "custom_fields"
+	u := "v2/custom_fields"
 
 	req, err := s.client.NewRequest("GET", u, nil)
 	if err != nil {

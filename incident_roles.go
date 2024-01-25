@@ -15,7 +15,7 @@ type IncidentRolesService service
 //
 // API docs: https://api-docs.incident.io/#operation/Incident%20Roles_List
 func (s *IncidentRolesService) List(ctx context.Context) (*IncidentRolesList, *Response, error) {
-	u := "incident_roles"
+	u := "v2/incident_roles"
 
 	req, err := s.client.NewRequest("GET", u, nil)
 	if err != nil {
