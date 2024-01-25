@@ -67,15 +67,25 @@ type IncidentsListOptions struct {
 
 // NewIncident represents a new incident to be created
 type NewIncident struct {
-	IdempotencyKey          string                   `json:"idempotency_key"` // Required
-	Visibility              string                   `json:"visibility"`      // Required
-	Name                    string                   `json:"name"`
-	Summary                 string                   `json:"summary"`
-	SeverityID              string                   `json:"severity_id"`
-	Mode                    string                   `json:"mode"`
-	CustomFieldEntries      []CustomFieldEntry       `json:"custom_field_entries"`
-	IncidentRoleAssignments []IncidentRoleAssignment `json:"incident_role_assignments"`
-	IncidentStatusID        string                   `json:"incident_status_id"`
+	IdempotencyKey          string                      `json:"idempotency_key"` // Required
+	Visibility              string                      `json:"visibility"`      // Required
+	Name                    string                      `json:"name"`
+	Summary                 string                      `json:"summary"`
+	SeverityID              string                      `json:"severity_id"`
+	Mode                    string                      `json:"mode"`
+	CustomFieldEntries      []NewCustomFieldEntry       `json:"custom_field_entries"`
+	IncidentRoleAssignments []NewIncidentRoleAssignment `json:"incident_role_assignments"`
+	IncidentStatusID        string                      `json:"incident_status_id"`
+}
+
+type NewCustomFieldEntry struct {
+	CustomFieldID string             `json:"custom_field_id"`
+	Values        []CustomFieldValue `json:"values"`
+}
+
+type NewIncidentRoleAssignment struct {
+	IncidentRoleID string `json:"incident_role_id"`
+	Assignee       *User  `json:"assignee"`
 }
 
 type Incident struct {
