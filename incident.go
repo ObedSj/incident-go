@@ -52,11 +52,12 @@ type Client struct {
 	common service
 
 	// Services used for talking to different parts of the Incident.io API.
-	Actions       *ActionsService
-	CustomFields  *CustomFieldsService
-	Severities    *SeveritiesService
-	IncidentRoles *IncidentRolesService
-	Incidents     *IncidentsService
+	Actions            *ActionsService
+	CustomFields       *CustomFieldsService
+	Severities         *SeveritiesService
+	IncidentRoles      *IncidentRolesService
+	Incidents          *IncidentsService
+	CustomFieldOptions *CustomFieldOptionsService
 }
 
 type service struct {
@@ -82,6 +83,7 @@ func NewClient(apiKey string, httpClient *http.Client) *Client {
 	c.common.client = c
 	c.Actions = (*ActionsService)(&c.common)
 	c.CustomFields = (*CustomFieldsService)(&c.common)
+	c.CustomFieldOptions = (*CustomFieldOptionsService)(&c.common)
 	c.Severities = (*SeveritiesService)(&c.common)
 	c.IncidentRoles = (*IncidentRolesService)(&c.common)
 	c.Incidents = (*IncidentsService)(&c.common)

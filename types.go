@@ -200,8 +200,9 @@ type CustomFieldValue struct {
 	ValueLink string `json:"value_link,omitempty"`
 
 	// Numeric value
-	ValueNumeric string             `json:"value_numeric,omitempty"`
-	ValueOption  *CustomFieldOption `json:"value_option,omitempty"`
+	ValueNumeric        string             `json:"value_numeric,omitempty"`
+	ValueCatalogEntryID string             `json:"value_catalog_entry_id,omitempty"`
+	ValueOption         *CustomFieldOption `json:"value_option,omitempty"`
 
 	// Text value
 	ValueText string `json:"value_text,omitempty"`
@@ -355,7 +356,8 @@ type CustomField struct {
 }
 
 type CustomFieldsList struct {
-	CustomFields []CustomField `json:"custom_fields"`
+	CustomFieldOptions []CustomFieldOption `json:"custom_field_options"`
+	PaginationMeta     PaginationMeta      `json:"pagination_meta"`
 }
 
 type CustomFieldResponse struct {
