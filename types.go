@@ -84,7 +84,7 @@ type NewCustomFieldEntry struct {
 
 type NewIncidentRoleAssignment struct {
 	IncidentRoleID string `json:"incident_role_id"`
-	Assignee       *User  `json:"assignee"`
+	Assignee       []User `json:"assignee"`
 }
 
 type Incident struct {
