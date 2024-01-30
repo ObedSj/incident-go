@@ -65,7 +65,7 @@ type IncidentsListOptions struct {
 	Status []string `url:"status,omitempty"`
 }
 
-// NewIncident represents a new incident to be created
+// NewIncident represents a new incident to be created with the basic required fields.
 type NewIncident struct {
 	IdempotencyKey          string                      `json:"idempotency_key"` // Required
 	Visibility              string                      `json:"visibility"`      // Required
@@ -75,7 +75,6 @@ type NewIncident struct {
 	Mode                    string                      `json:"mode"`
 	CustomFieldEntries      []NewCustomFieldEntry       `json:"custom_field_entries"`
 	IncidentRoleAssignments []NewIncidentRoleAssignment `json:"incident_role_assignments"`
-	IncidentStatusID        string                      `json:"incident_status_id"`
 }
 
 type NewCustomFieldEntry struct {
