@@ -106,6 +106,9 @@ type Incident struct {
 	// Explanation of the incident
 	Name string `json:"name"`
 
+	// Mode of the incident (Could be "standard" "retrospective" "test" "tutorial")
+	Mode string `json:"mode"`
+
 	// Description of the incident
 	PostmortemDocumentUrl string `json:"postmortem_document_url,omitempty"`
 
